@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alifsyah Panji</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <style>
+        .card {
+            margin-top: 25px;
+        }
+
+        thead {
+            background-color: purple;
+            color: white;
+        }
+
+        
+        button {
+            margin-bottom: 15px;
+            margin-right: 10px;
+        }
+
+        body {
+            background-image: linear-gradient(to bottom right, purple, blue);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+    </style>
+</head>
+<body>
+
+<!--Container Start-->
+    <div class="container-fluid">
+
+<!--Card Start-->
+        <div class="card">
+            <div class="card-body">
+             
+                <button type="button" class="btn btn-primary" onclick="funcHarga()">Harga Termurah</button>
+                <button type="button" class="btn btn-primary" onclick="funcRating()">Rating Tertinggi</button>
+                <button type="button" class="btn btn-primary" onclick="funcLikes()">Likes Terbanyak</button>
+
+
+
+
+
+
+        <!--Output Data Java Script-->
+        <div id="data"></div>
+
+    </div>
+</div>
+<!--Card End-->
+
+    
+      </div>
+<!--Container End-->
+      
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!--Java Script Start-->
+
+<script>
+    /* Data Array */
+    var produk = [
+        {nama: "Indomie", harga: "3000", rating:"5", likes: 150},
+        {nama: "Laptop", harga: "4000000", rating:"4.5", likes: 123},
+        {nama: "Aqua", harga: "3000", rating:"4", likes: 250},
+        {nama: "Smart TV", harga: "4000000", rating:"4.5", likes: 42},
+        {nama: "Handphone", harga: "4000000", rating:"3.5", likes: 90},
+        {nama: "Very Smart TV", harga: "4000000", rating:"3.5", likes: 87}
+    ];
+
+    /* Panjang Array */
+    var produklen = produk.length;
+
+    
+
+    /* Loop Data Produk */
+
+    var textProduk = '<table class="table"><thead><tr><th>Produk</th><th>Harga</th><th>Rating</th><th>Likes</th></tr></thead>';
+
+
+    for (var i = 0; i < produklen; i++) { 
+        textProduk += "<tr>" + "<td>" + produk[i].nama + "</td>" + "<td>" + produk[i].harga + "</td>" + "<td>" + produk[i].rating + "</td>" + "<td>" + produk[i].likes + "</td>" + "</tr>";
+    }
+
+    textProduk += "</table>";
+    /* Output Data Produk */
+    document.getElementById("data").innerHTML = textProduk;
+
+    /* Selesai */
+
+
+     /* Function Sort Harga */
+
+     function funcHarga(){
+        produk.sort(function(a,b){return a.harga - b.harga});
+
+    
+    /* Loop Data Harga */
+
+    var textHarga = '<table class="table"><thead><tr><th>Produk</th><th>Harga</th><th>Rating</th><th>Likes</th></tr></thead>';
+
+
+for (var i = 0; i < produklen; i++) { 
+    textHarga += "<tr>" + "<td>" + produk[i].nama + "</td>" + "<td>" + produk[i].harga + "</td>" + "<td>" + produk[i].rating + "</td>" + "<td>" + produk[i].likes + "</td>" + "</tr>";
+}
+
+textHarga += "</table>";
+/* Output Data Produk */
+document.getElementById("data").innerHTML = textHarga;
+
+    }
+
+/* Selesai */
+
+    
+
+    /* Function Sort Rating */
+
+    function funcRating(){
+        produk.sort(function(a,b){return b.rating - a.rating});
+
+    /* Loop Data Rating */
+
+    var textRating = '<table class="table"><thead><tr><th>Produk</th><th>Harga</th><th>Rating</th><th>Likes</th></tr></thead>';
+
+
+for (var i = 0; i < produklen; i++) { 
+    textRating += "<tr>" + "<td>" + produk[i].nama + "</td>" + "<td>" + produk[i].harga + "</td>" + "<td>" + produk[i].rating + "</td>" + "<td>" + produk[i].likes + "</td>" + "</tr>";
+}
+
+textRating += "</table>";
+/* Output Data Produk */
+document.getElementById("data").innerHTML = textRating;
+
+    }
+
+    /* Selesai */
+
+
+    /* Function Sort Likes */
+
+    function funcLikes(){
+        produk.sort(function(a,b){return b.likes - a.likes});
+    
+    /* Loop Data Likes */
+
+    var textLikes = '<table class="table"><thead><tr><th>Produk</th><th>Harga</th><th>Rating</th><th>Likes</th></tr></thead>';
+
+
+for (var i = 0; i < produklen; i++) { 
+    textLikes += "<tr>" + "<td>" + produk[i].nama + "</td>" + "<td>" + produk[i].harga + "</td>" + "<td>" + produk[i].rating + "</td>" + "<td>" + produk[i].likes + "</td>" + "</tr>";
+}
+
+textLikes += "</table>";
+/* Output Data Produk */
+document.getElementById("data").innerHTML = textLikes;
+    }
+
+    /* Selesai */
+
+</script>
+
+<!--Java Script End-->
+</body>
+</html>
